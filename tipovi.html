@@ -190,6 +190,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -328,6 +351,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="objekti.html"><a href="objekti.html#kratki-pregled-s4-objekata"><i class="fa fa-check"></i><b>7.5</b> Kratki pregled S4 objekata</a></li>
 <li class="chapter" data-level="" data-path="objekti.html"><a href="objekti.html#zadaci-za-vje%C5%BEbu-5"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
+</ul></li>
+<li class="part"><span><b>II Upravljanje podacima i vizualizacije</b></span></li>
+<li class="chapter" data-level="8" data-path="cijev.html"><a href="cijev.html"><i class="fa fa-check"></i><b>8</b> Koncept urednih podataka</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="cijev.html"><a href="cijev.html#operator-cjevovoda"><i class="fa fa-check"></i><b>8.1</b> Operator cjevovoda</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="cijev.html"><a href="cijev.html#primjer-8.1-u%C4%8Dahurene-funkcije"><i class="fa fa-check"></i><b>8.1.1</b> Primjer 8.1 – učahurene funkcije</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="cijev.html"><a href="cijev.html#uredni-podaci"><i class="fa fa-check"></i><b>8.2</b> Uredni podaci</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="cijev.html"><a href="cijev.html#funkcije-pivot_longer-i-pivot_wider"><i class="fa fa-check"></i><b>8.2.1</b> Funkcije <code>pivot_longer</code> i <code>pivot_wider</code></a></li>
+<li class="chapter" data-level="8.2.2" data-path="cijev.html"><a href="cijev.html#funkcije-separate-i-unite"><i class="fa fa-check"></i><b>8.2.2</b> Funkcije <code>separate</code> i <code>unite</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="cijev.html"><a href="cijev.html#funkcije-drop_na-i-replace_na"><i class="fa fa-check"></i><b>8.2.3</b> Funkcije <code>drop_na</code> i <code>replace_na</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="cijev.html"><a href="cijev.html#zadaci-za-vje%C5%BEbu-6"><i class="fa fa-check"></i>Zadaci za vježbu</a></li>
 </ul></li>
 </ul>
 
@@ -1498,20 +1536,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb103-5"><a href="tipovi.html#cb103-5" tabindex="-1"></a><span class="co"># dijagonalu matrice `m` zamijeni brojevima od 1 do 5</span></span>
 <span id="cb103-6"><a href="tipovi.html#cb103-6" tabindex="-1"></a><span class="co"># pomnoži matricu `m` jediničnom matricom dimenzija 5 x 5 i ispiši rezultat</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
-## [1,]  479  692  489  753  786
-## [2,]  780  778  549  699  929
-## [3,]  881  896  647  428  884
-## [4,]  190  998  911  162  758
-## [5,]  663  752  236  848  456</code></pre>
+## [1,]  938  748  846  950  635
+## [2,]  199  546  580  212  120
+## [3,]  536  752  671  333  499
+## [4,]  497  369  707  919  326
+## [5,]  681  411  491  775  511</code></pre>
 <div class="fold s o">
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="tipovi.html#cb105-1" tabindex="-1"></a><span class="fu">diag</span>(m) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
 <span id="cb105-2"><a href="tipovi.html#cb105-2" tabindex="-1"></a>m <span class="sc">%*%</span> <span class="fu">diag</span>(<span class="at">nrow =</span> <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    1  692  489  753  786
-## [2,]  780    2  549  699  929
-## [3,]  881  896    3  428  884
-## [4,]  190  998  911    4  758
-## [5,]  663  752  236  848    5</code></pre>
+## [1,]    1  748  846  950  635
+## [2,]  199    2  580  212  120
+## [3,]  536  752    3  333  499
+## [4,]  497  369  707    4  326
+## [5,]  681  411  491  775    5</code></pre>
 </div>
 <p>Funkcije <code>upper.tri</code> i <code>lower.tri</code> referenciraju elemente iznad tj. ispod glavne dijagonale matrice, pri čemu dijagonala nije uključena u rezultat osim ako ne postavimo parametar <code>diag = TRUE</code>. Poziv funkcije nad matricom zapravo stvara logičku indeksnu matricu odgovarajućih dimenzija, što možemo vidjeti u sljedećem zadatku.</p>
 <p><strong>Zadatak 2.26 - Funkcija <code>upper.tri</code> i <code>lower.tri</code></strong></p>
@@ -1527,12 +1565,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb107-10"><a href="tipovi.html#cb107-10" tabindex="-1"></a><span class="co"># - broj -1 ispod glavne dijagonale</span></span>
 <span id="cb107-11"><a href="tipovi.html#cb107-11" tabindex="-1"></a><span class="co"># - broj 0 na dijagonali</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
-## [1,]   97   72   95   68   88   58
-## [2,]   15   21   39   69   96   86
-## [3,]   73   48   36   90   34   77
-## [4,]   70   55   82   13   28   94
-## [5,]   46   10   75   20   80   24
-## [6,]   14   17   93   29   78   65</code></pre>
+## [1,]   12   66   71   69   27   29
+## [2,]   44   75   73   21   34   78
+## [3,]   94   74   67   48   51   36
+## [4,]   50   88   68   96   60   20
+## [5,]   84   63   57   70   22   42
+## [6,]   16   30   62   40   49   18</code></pre>
 <div class="fold s o">
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="tipovi.html#cb109-1" tabindex="-1"></a><span class="fu">upper.tri</span>(m)</span>
 <span id="cb109-2"><a href="tipovi.html#cb109-2" tabindex="-1"></a></span>

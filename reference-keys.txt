@@ -79,3 +79,10 @@ implementacija-generičke-funkcije
 funkcija-methods
 zaključci-o-s3-objektima
 kratki-pregled-s4-objekata
+cijev
+operator-cjevovoda
+primjer-8.1-učahurene-funkcije
+uredni-podaci
+funkcije-pivot_longer-i-pivot_wider
+funkcije-separate-i-unite
+funkcije-drop_na-i-replace_na
